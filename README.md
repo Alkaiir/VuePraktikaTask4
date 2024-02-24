@@ -11,5 +11,4 @@
 
 `npm run dev`
 
-> [!WARNING]
-> Urgent info that needs immediate user attention to avoid problems.
+> [`git clone https://github.com/Alkaiir/VuePraktikaTask4`]
