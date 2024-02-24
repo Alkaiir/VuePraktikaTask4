@@ -1,6 +1,6 @@
 <script>
-import store from "/src/store/store.js";
-import axios from "axios";
+import store from "/src/store/store.js"
+import {login} from "../composeble/api/api.js";
 
 export default {
   computed: {
@@ -15,22 +15,13 @@ export default {
     }
   },
   methods: {
+    login () {
 
-    async login(){
-      //валидация
-      let userData={
-        email: this.email,
-        password: this.password
+      if (this.email !== null && this.password !== null) {
+        login(this.email, this.password)
       }
 
-      const data = await axios.post( store.state.url + 'login', userData)
-          .then(function (response) {
-            store.state.user_token = response.data.data.user_token;
-            localStorage.token = store.state.user_token;
-          })
-          .catch(error =>{console.log(error)})
-    },
-
+    }
   }
 }
 </script>
@@ -41,10 +32,9 @@ export default {
     <input type="text" id="email" v-model="email">
     <label for="password">Пароль</label>
     <input type="password" id="password" v-model="password">
-    <button @click="login">Войти в аккаунт</button>
+    <button class="formButton" @click="login">Войти в аккаунт</button>
   </form>
 </template>
 
 <style scoped>
-
 </style>

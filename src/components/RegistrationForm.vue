@@ -1,6 +1,6 @@
 <script>
 import store from "/src/store/store.js";
-import axios from "axios";
+import {registration} from "../composeble/api/api.js";
 
 export default {
   computed: {
@@ -16,21 +16,12 @@ export default {
     }
   },
   methods: {
-    async registration(){
+    registration(){
 
-      //валидация
-
-      let userData = {
-        fio: this.fio,
-        email: this.email,
-        password: this.password
+      if (this.fio !== null && this.email !== null && this.password !== null) {
+        registration(this.fio, this.email, this.password);
       }
-      const data = await axios.post( store.state.url + 'signup', userData)
-          .then(function (response) {
-            store.state.user_token = response.data.data.user_token;
-            localStorage.token = store.state.user_token;
-          })
-          .catch(error =>{console.log(error)})
+
     }
   }
 }
@@ -44,7 +35,7 @@ export default {
     <input type="text" id="email" v-model="email">
     <label for="password">Пароль</label>
     <input type="password" id="password" v-model="password">
-    <button @click="registration">Создать аккаунт</button>
+    <button class="formButton" @click="registration">Создать аккаунт</button>
   </form>
 </template>
 
