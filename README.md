@@ -7,7 +7,7 @@
 
 >`cd VuePraktikaTask4`
 
->`npm insatll`
+>`npm install`
 
 >`npm run dev`
 
