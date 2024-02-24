@@ -11,4 +11,4 @@
 
 `npm run dev`
 
-> [`git clone https://github.com/Alkaiir/VuePraktikaTask4`]
+>`git clone https://github.com/Alkaiir/VuePraktikaTask4`
