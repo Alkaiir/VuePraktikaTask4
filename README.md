@@ -3,12 +3,11 @@
 
 Запуск проекта
 
-`git clone https://github.com/Alkaiir/VuePraktikaTask4`
-
-`cd VuePraktikaTask4`
-
-`npm insatll`
-
-`npm run dev`
-
 >`git clone https://github.com/Alkaiir/VuePraktikaTask4`
+
+>`cd VuePraktikaTask4`
+
+>`npm insatll`
+
+>`npm run dev`
+
