@@ -18,14 +18,17 @@ export default {
 </script>
 
 <template>
-  <catalog class="catalog"></catalog>
+  <div class="catalog-content">
+    <catalog></catalog>
+  </div>
 </template>
 
 <style scoped>
-.catalog {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.catalog-content {
+  padding: 20px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
   width: 100vw;
 }
 </style>

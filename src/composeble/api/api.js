@@ -30,6 +30,7 @@ const registration = async function (fio, email, password){
         })
         .catch(error =>{console.log(error)})
 
+    router.push('catalog');
 }
 
 const login = async function (email, password){
@@ -65,6 +66,19 @@ const getCatalog = async function (){
         })
 }
 
+const addToCart = async function() {
 
+    const data = await axios.post(store.state.url + 'products')
+        .then(function (response) {
+            for (let i = 0; i < response.data.data.length; ++i) {
+                store.state.catalog.push(response.data.data[i])
+            }
+            console.log(store.state.catalog)
+        })
+        .catch(error => {
+            console.log(error)
+        })
 
-export {logout, registration, login, getCatalog}
+}
+
+export {logout, registration, login, getCatalog, addToCart}

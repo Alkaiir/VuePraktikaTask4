@@ -1,8 +1,10 @@
 <script>
 import store from "/src/store/store.js";
 import {registration} from "../composeble/api/api.js";
+import NewButton from "./NewButton.vue";
 
 export default {
+  components: {NewButton},
   computed: {
     store() {
       return store
@@ -35,7 +37,7 @@ export default {
     <input type="text" id="email" v-model="email">
     <label for="password">Пароль</label>
     <input type="password" id="password" v-model="password">
-    <button class="formButton" @click="registration">Создать аккаунт</button>
+    <new-button @click="registration">Создать аккаунт</new-button>
   </form>
 </template>
 
