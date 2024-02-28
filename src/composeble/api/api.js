@@ -42,6 +42,7 @@ const login = async function (email, password){
 
     const data = await axios.post(store.state.url + 'login', userData)
         .then(function (response) {
+            console.log(response);
             store.state.user_token = response.data.data.user_token;
             localStorage.token = store.state.user_token;
         })
@@ -57,23 +58,35 @@ const getCatalog = async function (){
     const data = await axios.get(store.state.url + 'products')
         .then(function (response) {
             for (let i = 0; i < response.data.data.length; ++i) {
-                store.state.catalog.push(response.data.data[i])
+                store.state.catalog.push(response.data.data[i]);
             }
-            console.log(store.state.catalog)
+            console.log(store.state.catalog);
         })
         .catch(error => {
             console.log(error)
         })
 }
 
-const addToCart = async function() {
+const addToCart = async function(item) {
 
-    const data = await axios.post(store.state.url + 'products')
+    const data = await axios.post(store.state.url + 'cart/' + item.id, item, store.getters.config)
+        .then(function (response) {
+            getCart()
+        })
+        .catch(error => {
+            console.log(error)
+        })
+
+}
+
+const getCart = async function() {
+    store.state.cart = [];
+    const data = await axios.get(store.state.url + 'cart', store.getters.config)
         .then(function (response) {
             for (let i = 0; i < response.data.data.length; ++i) {
-                store.state.catalog.push(response.data.data[i])
+                store.state.cart.push(response.data.data[i]);
             }
-            console.log(store.state.catalog)
+            console.log(store.state.cart);
         })
         .catch(error => {
             console.log(error)
@@ -81,4 +94,4 @@ const addToCart = async function() {
 
 }
 
-export {logout, registration, login, getCatalog, addToCart}
+export {logout, registration, login, getCatalog, addToCart, getCart}

@@ -9,13 +9,13 @@ export default createStore({
                 Authorization: 'Bearer '
             }
         },
-        catalog: []
+        catalog: [],
+        cart: []
     },
     getters: {
         config (state) {
 
-            let config = {headers: {"Authorization": "Bearer " + state.user_token}}
-            return config
+            return {headers: {Authorization: "Bearer "  + state.user_token}}
 
         }
     },

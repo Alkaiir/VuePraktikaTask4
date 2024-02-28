@@ -1,6 +1,6 @@
 import * as VueRouter from 'vue-router';
 
-
+import CartPage from "../pages/CartPage.vue";
 import CatalogPage from "../pages/CatalogPage.vue";
 import LoginPage from "../pages/LoginPage.vue";
 import RegistrationPage from "../pages/RegistrationPage.vue";
@@ -17,6 +17,10 @@ const routes = [
     {path: '/registration',
      name:'registration',
      component: RegistrationPage
+    },
+    {path: '/cart',
+     name:'cart',
+     component: CartPage
     },
 ]
 

@@ -17,8 +17,8 @@ export default {
     item: Object
   },
   methods: {
-    addToCart () {
-      addToCart();
+    addToCart (item) {
+      addToCart(item);
     }
   }
 }
@@ -29,7 +29,7 @@ export default {
     <h3>{{ item.name }}</h3>
     <p>{{ item.description }}</p>
     <p><strong>{{ item.price }}</strong></p>
-    <new-button v-if="store.state.user_token" @click="addToCart(item.id)">Добавить в карзину</new-button>
+    <new-button v-if="store.state.user_token" @click="addToCart(item)">Добавить в карзину</new-button>
     <new-button v-if="!store.state.user_token" disabled>Добавить в карзину</new-button>
   </div>
 </template>
