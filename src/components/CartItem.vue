@@ -30,7 +30,7 @@ export default {
       <new-button class="counterChangeButton" @click="deleteFromCart(item.itemInfo)"> - </new-button>
     </div>
 
-    <new-button>Удалить товар</new-button>
+    <new-button @click="deleteFromCart(item.itemInfo)">Удалить товар</new-button>
 
   </div>
 </template>
