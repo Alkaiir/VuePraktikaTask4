@@ -1,6 +1,6 @@
 <script>
 import store from "./store/store.js"
-import {logout} from "/src/composeble/api/api.js"
+import {getCart, getCatalog, logout} from "/src/composeble/api/api.js"
 export default {
   computed: {
     store() {
@@ -30,6 +30,7 @@ export default {
       <nav class="nav-links">
         <router-link class="nav-link" to="/catalog">Каталог</router-link>
         <router-link class="nav-link" to="/cart" v-if="store.state.user_token !== null">Корзина</router-link>
+        <router-link class="nav-link" to="/orders" v-if="store.state.user_token !== null">Заказы</router-link>
         <router-link class="nav-link" v-if="store.state.user_token === null" to="/login">Авторизация</router-link>
         <router-link class="nav-link" v-if="store.state.user_token === null" to="/registration">Регистрация</router-link>
         <router-link class="nav-link" v-if="store.state.user_token !== null" to="/catalog" @click="logout">Выход</router-link>

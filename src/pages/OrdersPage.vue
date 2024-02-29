@@ -1,31 +1,29 @@
 <script>
 import store from "/src/store/store.js";
-import Catalog from "../components/Catalog.vue";
-import {getCatalog} from "../composeble/api/api.js";
+import Orders from "../components/Orders.vue";
+import {getOrders} from "../composeble/api/api.js";
 export default {
-  components: {Catalog},
+  components: {Orders},
   computed: {
     store() {
       return store
     }
   },
-  methods:{
-
-  },
+  methods: {},
   mounted() {
-    getCatalog()
+    getOrders()
   }
 }
 </script>
 
 <template>
-  <div class="catalog-content">
-    <catalog></catalog>
+  <div class="orders-content">
+    <orders></orders>
   </div>
 </template>
 
 <style scoped>
-.catalog-content {
+.orders-content {
   padding: 20px;
   display: grid;
   grid-template-columns: repeat(3, 1fr);

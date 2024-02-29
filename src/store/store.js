@@ -10,7 +10,8 @@ export default createStore({
             }
         },
         catalog: [],
-        cart: []
+        cart: [],
+        orders: []
     },
     getters: {
         config (state) {
